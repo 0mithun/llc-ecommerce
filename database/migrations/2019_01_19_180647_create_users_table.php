@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('facebook_id',32)->nullable();
             $table->string('google_id',32)->nullable();
             $table->rememberToken();
+            $table->timestamps();
 
         });
     }
