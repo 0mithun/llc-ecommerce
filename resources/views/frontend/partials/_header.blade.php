@@ -2,25 +2,31 @@
     <div class="collapse bg-dark" id="navbarHeader">
         <div class="container">
         <div class="row">
-            <div class="col-sm-8 col-md-7 py-4">
-            <h4 class="text-white">About</h4>
-            <p class="text-muted">LLC Ecommerce is an ecommerce management platform develop using laravel.</p>
+            <div class="col-md-10  py-4">
+                <h4 class="text-white">Categories</h4>
+                <ul class="list-unstyled">
+                    @foreach ($categories as $category) 
+                       <li><a href="{{ $category->slug}}" class="text-white">{{ $category->name }}rt</a></li> 
+                    @endforeach
+                    
+                </ul>
             </div>
-            <div class="col-sm-4 offset-md-1 py-4">
-            <h4 class="text-white">Menu</h4>
-            <ul class="list-unstyled">
-                @guest()
-                    <li><a href="#" class="text-white">Create an Account</a></li>
-                    <li><a href="#" class="text-white">Login</a></li>
-                @endguest
 
-                @auth()
-                    <li><a href="#" class="text-white">My Profile</a></li>
-                    <li><a href="#" class="text-white">Log Out</a></li>
-                @endauth
+            <div class="col-md-2  py-4">
+                <h4 class="text-white">Menu</h4>
+                <ul class="list-unstyled">
+                    @guest()
+                        <li><a href="#" class="text-white">Create an Account</a></li>
+                        <li><a href="#" class="text-white">Login</a></li>
+                    @endguest
 
-                <li><a href="#" class="text-white">Cart</a></li>
-            </ul>
+                    @auth()
+                        <li><a href="#" class="text-white">My Profile</a></li>
+                        <li><a href="#" class="text-white">Log Out</a></li>
+                    @endauth
+
+                    <li><a href="#" class="text-white">Cart</a></li>
+                </ul>
             </div>
         </div>
         </div>
