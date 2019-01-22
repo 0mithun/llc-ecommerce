@@ -3,6 +3,7 @@
         <p class="float-right">
         <a href="#">Back to top</a>
         </p>
-        <p>LLC Ecommerce is an ecommerce management platform develop using laravel.</p>
+        <p> &copy; {{ config('app.name')}} {{ date('Y') }}</p>
+        <p>Read Our <a href="#">Privacy Policy</a> or <a href="#">Contact Us</a></p>
     </div>
 </footer>
