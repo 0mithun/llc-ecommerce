@@ -7,6 +7,7 @@
     <div class="container">
         <div class="row">
             @foreach($products as $product)
+
             <div class="col-md-4">
                 <div class="card mb-4 box-shadow">
                     <img class="card-img-top" src="{{ $product->getFirstMediaUrl('products') }}" alt="{{ $product->title}}">
@@ -17,7 +18,7 @@
                                 <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                                 <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                             </div>
-                            <strong class="text-muted">BDT {{ $product->price }}</strong>
+                            <strong class="text-muted">BDT {{ number_format($product->price,2) }}</strong>
                         </div>
                     </div>
                 </div>
