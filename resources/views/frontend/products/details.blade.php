@@ -18,8 +18,11 @@
                     <h3 class="title mg-3">{{ $product->title }}</h3>
                     <p class="price-detail-wrap">
                         <span class="price h3 text-warning" >
-                            <span class="currency">BDT</span>
-                            <span class="num">{{ number_format($product->price,2) }}</span>
+                            @if ($product->sale_price != NULL)
+                                <strike class="text-danger">BDT {{ number_format($product->price,2) }}</strike> &nbsp; &nbsp; BDT {{ number_format($product->sale_price,2) }}
+                            @else
+                                 BDT {{ number_format($product->price,2) }}
+                            @endif
                         </span>
                     </p>
                     <dl class="item-property">
@@ -27,9 +30,12 @@
                         <dd><p>{{ $product->description }}</p></dd>
                     </dl>
                     <hr>
-                    <a href="#" class="btn btn-lg btn-outline-primary text-uppercase">
-                        <i class="fa fa-shopping-card">Add to cart</i>
-                    </a>
+                  
+                        <form method="post" action="{{ route('cart.add') }}">
+                            @csrf 
+                            <input type="hidden" name="product_id" value="{{ $product->id }}" />
+                            <button type="submit" class="btn btn-outline-primary">Add to Cart</button>
+                        </form>
                 </article>
             </aside>
         </div>
