@@ -53,7 +53,11 @@
                     </tr>
             </tbody>
         </table>
-        <a class="btn btn-danger" href="{{ route('cart.clear') }}">Clear Cart</a>
+        <div class="row">
+        
+        <div class="col-md-2"><a class="btn btn-danger" href="{{ route('cart.clear') }}">Clear Cart</a></div>
+        <div class="col-md-2 offset-md-8"><a class="btn btn-primary left" href="{{ route('cart.checkout') }}">Checkout</a></div>
+        </div>
         @endif
 
         

@@ -30,8 +30,7 @@
                             @else
                                  BDT {{ number_format($product->price,2) }}
                             @endif
-                           
-                            
+                                                       
                             </strong>
                         </div>
                     </div>
