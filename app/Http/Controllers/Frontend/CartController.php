@@ -132,8 +132,14 @@ class CartController extends Controller
         }
         session(['cart'=> []]);
         session()->flash('type','success');
-        session()->flash('message','Order Created Successfully');
-        return redirect('/');
+        session()->flash('message','Order Placed Successfully');
+        return redirect()->route('orders.details', $order->id);
+    }
+
+    public function showOrder($id){
+        $data = [];
+        $data['order'] = Order::with(['products','products.product'])->select('id','customer_name','customer_phone_number','total_amount','discount_amount','paid_amount')->findOrFail($id);
+        return view('frontend.orders.details', $data);
     }
 
 }

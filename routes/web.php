@@ -34,6 +34,8 @@ Route::group(['namespace' => 'Frontend'], function () {
         Route::get('profile', 'AuthController@profile')->name('profile');
 
         Route::post('order','CartController@procesedOrder')->name('order');
+        Route::get('order/{id}','CartController@showOrder')->name('orders.details');
+
     });
 
     

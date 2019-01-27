@@ -127,7 +127,10 @@ class AuthController extends Controller
 
 
     public function profile(){
-        return 'profile';
+        $data = [];
+        
+        $data['orders'] = auth()->user()->orders()->get();
+        return view('frontend.auth.profile', $data);
     }
 
 }
