@@ -7,6 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use App\Notifications\OrderEmailNotification;
 
 class CartController extends Controller
 {
@@ -130,6 +131,9 @@ class CartController extends Controller
                 'price'         =>  $product['total_price']
             ]);
         }
+        $user = auth()->user();
+        $user->notify(new OrderEmailNotification($order,$user));
+
         session(['cart'=> []]);
         session()->flash('type','success');
         session()->flash('message','Order Placed Successfully');
